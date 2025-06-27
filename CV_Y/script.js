@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  const topBtn = document.getElementById('topBtn');
+ /* const topBtn = document.getElementById('topBtn');
   if (topBtn) {
     topBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (topBtn) {
       topBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
     }
-  });
-
+  });*/
+/*
   const modeToggle = document.getElementById('modeToggle');
   const body = document.body;
 
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (slider) slider.classList.toggle('hidden');
     });
   }*/
-});
+})
 document.addEventListener('DOMContentLoaded', function() {
   const topBtn = document.getElementById('topBtn');
   
