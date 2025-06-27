@@ -17,6 +17,13 @@
     --neon-blue: #05d9e8;
     --neon-purple: #d300c5;
     --neon-green: #00ff9d;
+    --neon-yellow: #ffde59;
+    --neon-orange: #ff7b25;
+    
+    /* Màu sắc cho các mức độ kỹ năng */
+    --basic-color: #ff2a6d;       /* Cơ bản - Màu hồng */
+    --intermediate-color: #ffde59; /* Trung cấp - Màu vàng */
+    --advanced-color: #00ff9d;    /* Thành thạo - Màu xanh lá */
 }
 
 body {
@@ -26,6 +33,72 @@ body {
     background: linear-gradient(135deg, var(--dark-color) 0%, #302b63 50%, #24243e 100%);
     min-height: 100vh;
     overflow-x: hidden;
+}
+
+/* Text color classes */
+.neon-pink-text {
+    color: var(--neon-pink);
+    text-shadow: 0 0 5px var(--neon-pink);
+}
+
+.neon-blue-text {
+    color: var(--neon-blue);
+    text-shadow: 0 0 5px var(--neon-blue);
+}
+
+.neon-purple-text {
+    color: var(--neon-purple);
+    text-shadow: 0 0 5px var(--neon-purple);
+}
+
+.neon-green-text {
+    color: var(--neon-green);
+    text-shadow: 0 0 5px var(--neon-green);
+}
+
+.neon-yellow-text {
+    color: var(--neon-yellow);
+    text-shadow: 0 0 5px var(--neon-yellow);
+}
+
+.neon-orange-text {
+    color: var(--neon-orange);
+    text-shadow: 0 0 5px var(--neon-orange);
+}
+
+.neon-text {
+    text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+}
+
+/* Background color classes */
+.neon-pink-bg {
+    background-color: var(--neon-pink);
+}
+
+.neon-blue-bg {
+    background-color: var(--neon-blue);
+}
+
+.neon-purple-bg {
+    background-color: var(--neon-purple);
+}
+
+.neon-green-bg {
+    background-color: var(--neon-green);
+}
+
+.neon-yellow-bg {
+    background-color: var(--neon-yellow);
+}
+
+.neon-orange-bg {
+    background-color: var(--neon-orange);
+}
+
+/* Hover effect */
+.neon-hover:hover {
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
 }
 
 /* Particle Background */
@@ -95,7 +168,7 @@ body {
     100% { transform: rotate(360deg); }
 }
 
-/* Trang giới thiệu  */
+/* Trang giới thiệu */
 .intro-page {
     position: fixed;
     top: 0;
@@ -110,18 +183,19 @@ body {
     color: white;
     text-align: center;
     overflow: hidden;
+    background: radial-gradient(circle at center, rgba(15, 12, 41, 0.9) 0%, rgba(5, 5, 15, 0.95) 100%);
 }
 
 .intro-content {
     max-width: 800px;
     padding: 2rem;
     z-index: 2;
+    position: relative;
 }
 
-.intro-page h1 {
+.neon-title {
     font-size: 4rem;
     margin-bottom: 1.5rem;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     font-weight: 700;
     background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue), var(--neon-purple));
     -webkit-background-clip: text;
@@ -129,6 +203,7 @@ body {
     color: transparent;
     background-size: 300% 300%;
     animation: gradient 5s ease infinite;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .animated-title {
@@ -137,6 +212,7 @@ body {
     height: 90px;
     overflow: hidden;
     margin-bottom: 2rem;
+    position: relative;
 }
 
 .animated-title .text-top {
@@ -153,19 +229,18 @@ body {
 }
 
 .animated-title .text-top div span:first-child {
-    color: var(--neon-blue);
     font-size: 2.5rem;
     display: block;
     font-weight: 700;
+    margin-bottom: 0.5rem;
 }
 
 .animated-title .text-top div span:last-child {
-    color: var(--neon-green);
     font-size: 1.5rem;
     display: block;
+    font-weight: 400;
+    opacity: 0.8;
 }
-
-
 
 .animated-title .text-bottom div {
     animation: showBottomText 0.5s;
@@ -173,8 +248,8 @@ body {
     animation-fill-mode: forwards;
     transform: translate(0%, -100%);
     font-size: 1.8rem;
-    color: var(--neon-pink);
     font-weight: 700;
+    margin-top: 1rem;
 }
 
 @keyframes showTopText {
@@ -188,7 +263,7 @@ body {
 }
 
 /* Nút Liquid */
-.enter-button {
+.neon-button {
     position: relative;
     padding: 1.2rem 2.5rem;
     font-size: 1.2rem;
@@ -203,17 +278,15 @@ body {
     align-items: center;
     margin: 0 auto;
     z-index: 1;
-    box-shadow: 0 0 10px rgba(5, 217, 232, 0.5),
-                0 0 20px rgba(5, 217, 232, 0.3);
 }
 
-.enter-button span {
+.neon-button span {
     position: relative;
     z-index: 2;
     transition: color 0.3s ease;
 }
 
-.enter-button .liquid {
+.neon-button .liquid {
     position: absolute;
     top: -80px;
     left: 0;
@@ -224,17 +297,15 @@ body {
     z-index: 1;
 }
 
-.enter-button:hover .liquid {
+.neon-button:hover .liquid {
     top: -120px;
 }
 
-.enter-button:hover {
+.neon-button:hover {
     color: var(--dark-color);
-    box-shadow: 0 0 20px rgba(5, 217, 232, 0.8),
-                0 0 40px rgba(5, 217, 232, 0.6);
 }
 
-.enter-button:hover span {
+.neon-button:hover span {
     color: var(--dark-color);
 }
 
@@ -254,16 +325,6 @@ body {
     transform: translateY(-50%) translateX(0);
 }
 
-.floating-nav-bg {
-    position: absolute;
-    width: 60px;
-    height: 250px;
-    background: rgba(15, 12, 41, 0.7);
-    border-radius: 30px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 20px rgba(0, 219, 222, 0.3);
-    z-index: -1;
-}
 
 .floating-nav ul {
     list-style: none;
@@ -285,8 +346,8 @@ body {
     height: 40px;
     border-radius: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     transition: all 0.3s ease;
     position: relative;
 }
@@ -318,7 +379,6 @@ body {
     transition: all 0.3s ease;
     pointer-events: none;
     white-space: nowrap;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .floating-nav a:hover::after {
@@ -330,6 +390,12 @@ body {
 .glitch-wrapper {
     position: relative;
     margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .glitch {
@@ -438,16 +504,7 @@ body {
     animation: fadeIn 2s ease 3s forwards;
 }
 
-.mouse {
-    width: 25px;
-    height: 40px;
-    border: 2px solid var(--neon-blue);
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    padding-top: 5px;
-    margin-bottom: 10px;
-}
+
 
 .scroller {
     width: 5px;
@@ -508,57 +565,23 @@ body {
     border-radius: 2px;
 }
 
-/* Phần Banner */
-.banner {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                url('../images/banner.jpg') no-repeat center center/cover;
-    height: 100vh;
+/* Profile Header */
+.profile-header {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-align: center;
-    color: white;
-    position: relative;
-}
-
-.banner-content {
-    transform: scale(0.9);
-    opacity: 0;
-    transition: all 1s ease;
-}
-
-.banner-content.animated {
-    transform: scale(1);
-    opacity: 1;
-}
-
-/* Phần Thông tin cá nhân */
-.about-section {
-    background: rgba(15, 12, 41, 0.7);
-    backdrop-filter: blur(10px);
-}
-
-.about-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    align-items: center;
-}
-
-.about-image {
-    flex: 1;
-    min-width: 300px;
-    text-align: center;
+    margin-bottom: 3rem;
 }
 
 .avatar-wrapper {
     position: relative;
-    display: inline-block;
+    margin-bottom: 1.5rem;
 }
 
 .avatar {
-    width: 270px;
-    height: 270px;
+    width: 500px;
+    height: 500px;
     border-radius: 50%;
     object-fit: cover;
     position: relative;
@@ -567,81 +590,69 @@ body {
     transition: all 0.5s ease;
 }
 
-.avatar-border {
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    border-radius: 50%;
-    background: linear-gradient(45deg, var(--neon-pink), var(--neon-blue), var(--neon-purple));
-    z-index: 0;
-    animation: rotateBorder 8s linear infinite;
-}
-
-@keyframes rotateBorder {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
 .avatar:hover {
     transform: scale(1.05);
     border-color: white;
 }
 
-.about-info {
-    flex: 2;
-    min-width: 300px;
+.profile-title h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
 }
 
-.info-item {
-    margin-bottom: 2rem;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1.5rem;
+.profile-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+/* About Grid */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.about-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.5s ease;
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.info-item:hover {
+.about-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 219, 222, 0.3);
     border-color: var(--neon-blue);
 }
 
-.info-item h3 {
-    color: var(--neon-blue);
-    margin-bottom: 1rem;
+.about-card h3 {
+    margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
+    gap: 0.5rem;
 }
 
-.info-item i {
-    margin-right: 0.5rem;
-    font-size: 1.2rem;
-}
-
-.info-item ul {
+.info-list {
     list-style: none;
 }
 
-.info-item li {
-    margin-bottom: 0.5rem;
+.info-list li {
+    margin-bottom: 0.8rem;
     position: relative;
     padding-left: 1.5rem;
 }
 
-.info-item li::before {
+.info-list li::before {
     content: '▹';
     position: absolute;
     left: 0;
     color: var(--neon-green);
 }
 
-.info-item li strong {
+.info-list li strong {
     color: white;
+    margin-right: 0.5rem;
 }
 
 /* Phần Mục tiêu nghề nghiệp */
@@ -649,184 +660,240 @@ body {
     background: linear-gradient(135deg, rgba(15, 12, 41, 0.8) 0%, rgba(48, 43, 99, 0.8) 100%);
 }
 
-.career-content {
-    max-width: 800px;
+.career-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
 .career-goal {
     display: flex;
-    align-items: flex-start;
-    margin-bottom: 2rem;
+    flex-direction: column;
     background: rgba(255, 255, 255, 0.05);
-    padding: 1.5rem;
+    padding: 2rem;
     border-radius: 8px;
     transition: all 0.5s ease;
     border-left: 3px solid transparent;
+    height: 100%;
 }
 
 .career-goal:hover {
     border-left-color: var(--neon-pink);
-    transform: translateX(10px);
+    transform: translateY(-10px);
     background: rgba(255, 255, 255, 0.1);
 }
 
-.goal-icon {
+.career-goal h3 {
     font-size: 1.5rem;
-    color: var(--neon-blue);
-    margin-right: 1rem;
-    min-width: 40px;
+    margin-bottom: 1rem;
     text-align: center;
+}
+
+.goal-icon {
+    font-size: 2rem;
+    color: var(--neon-blue);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Phần Kỹ năng và Ngôn ngữ */
+#skills {
+  padding: 40px 20px;
+}
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.glass-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--accent-green, #00ff94);
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.4s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+}
+
+.glass-box h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: var(--accent-green, #00ff94);
+  text-shadow: 0 0 8px rgba(0, 255, 148, 0.5);
+}
+
+.skill-item {
+  margin-bottom: 20px;
+}
+
+.skill-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #ccc;
+}
+
+.skill-item {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 0;
+}
+
+.skill-item:hover {
+  transform: scale(1.02);
+  z-index: 1;
+}
+
+/* Thanh chứa 3 vùng */
+.bar.full {
+  display: flex;
+  position: relative;
+  height: 30px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #1e1e1e;
+  border: 1px solid rgba(0, 255, 148, 0.3);
+}
+
+/* 3 vùng chữ */
+.segment {
+  flex: 1;
+  text-align: center;
+  line-height: 30px;
+  font-size: 0.8rem;
+  z-index: 1;
+  position: relative;
+  color: #fff;
+  text-shadow: 0 0 3px #000;
+}
+
+.basic  { background: rgba(158, 201, 255, 0.15); }
+.medium { background: rgba(74, 166, 255, 0.15); }
+.advanced { background: rgba(0, 94, 255, 0.15); }
+
+/* Thanh màu chạy */
+.level-fill {
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: var(--level);
+  background: linear-gradient(to right, #9ec9ff, #4aa6ff, #005eff);
+  border-radius: 8px;
+  z-index: 0;
+  transition: width 1s ease-out;
 }
 
 /* Phần Sở thích */
 .hobby-section {
-    background: rgba(15, 12, 41, 0.7);
-    backdrop-filter: blur(10px);
+    padding: 40px 0;
+    background: #0f0f1a;
+    position: relative;
 }
 
 .hobby-content {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
 }
 
-.hobby-item {
+.hobby-card {
+    width: 200px;
     text-align: center;
-    padding: 2rem 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    min-width: 150px;
-    transition: all 0.5s ease;
     cursor: pointer;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.hobby-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 219, 222, 0.2);
-    border-color: var(--neon-blue);
+.hobby-main {
+    padding: 20px;
+    background: rgba(20, 20, 40, 0.7);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.hobby-card:hover .hobby-main {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(5, 217, 232, 0.3);
 }
 
 .hobby-icon {
     font-size: 2rem;
-    margin-bottom: 1rem;
-    color: var(--neon-blue);
-    transition: all 0.3s ease;
+    margin-bottom: 10px;
+    color: #05d9e8;
 }
 
-.hobby-item:hover .hobby-icon {
-    color: var(--neon-pink);
-    transform: scale(1.2);
-}
-
-.hobby-item p {
-    font-weight: 500;
-}
-
-/* Phần Kỹ năng */
-.skills-section {
-    background: linear-gradient(135deg, rgba(15, 12, 41, 0.8) 0%, rgba(48, 43, 99, 0.8) 100%);
-}
-
-.skills-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-}
-
-.skills-column {
-    flex: 1;
-    min-width: 300px;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.5s ease;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.skills-column:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 219, 222, 0.2);
-    border-color: var(--neon-blue);
-}
-
-.skills-column h3 {
-    color: var(--neon-blue);
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    font-size: 1.5rem;
-}
-
-.skills-column i {
-    margin-right: 0.5rem;
-}
-
-.skill-item {
-    margin-bottom: 1.5rem;
-}
-
-.skill-item p {
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-}
-
-.skill-bar {
-    height: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-    overflow: hidden;
+/* Phần wrapper chứa ảnh */
+.hobby-images-wrapper {
+    min-height: 250px; /* Đảm bảo có không gian cho ảnh hiển thị */
+    margin-top: 20px;
     position: relative;
 }
 
-
-@keyframes shine {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-}
-
-/* Phần Chứng chỉ */
-.certificate-section {
-    background: rgba(15, 12, 41, 0.7);
-    backdrop-filter: blur(10px);
-}
-
-.certificate-content {
-    max-width: 800px;
+.hobby-images {
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 900px;
     margin: 0 auto;
-    text-align: center;
+    padding: 20px;
+    background: rgba(10, 10, 30, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 180, 255, 0.3);
+    position: relative; /* Thay đổi từ absolute sang relative */
+    z-index: 1;
 }
 
-.certificate-item {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 2rem;
-    border-radius: 8px;
-    display: inline-flex;
-    align-items: center;
-    transition: all 0.5s ease;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+.hobby-images.active {
+    display: grid;
+    animation: fadeIn 0.3s ease;
 }
 
-.certificate-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 219, 222, 0.2);
-    border-color: var(--neon-blue);
+.hobby-images img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
 }
 
-.certificate-item i {
-    font-size: 2rem;
-    color: var(--neon-blue);
-    margin-right: 1rem;
+.hobby-images img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(5, 217, 232, 0.5);
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .hobby-content {
+        gap: 15px;
+    }
+    
+    .hobby-card {
+        width: 150px;
+    }
+    
+    .hobby-images {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .hobby-images img {
+        height: 150px;
+    }
+}
 /* Phần Dự án */
 .projects-section {
     background: linear-gradient(135deg, rgba(15, 12, 41, 0.8) 0%, rgba(48, 43, 99, 0.8) 100%);
@@ -856,7 +923,6 @@ body {
 
 .project-item:hover {
     transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 219, 222, 0.3);
     border-color: var(--neon-blue);
 }
 
@@ -905,12 +971,28 @@ body {
     padding: 1.5rem;
 }
 
+.project-info h3 {
+    color: var(--neon-blue);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
 .project-info p {
     margin-bottom: 1rem;
 }
 
 .project-info strong {
-    color: var(--neon-blue);
+    color: var(--neon-green);
+}
+
+.project-info ul {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+.project-info li {
+    margin-bottom: 0.5rem;
+    position: relative;
 }
 
 .project-link {
@@ -971,7 +1053,6 @@ body {
 .contact-item:hover {
     transform: translateX(10px);
     border-color: var(--neon-blue);
-    box-shadow: 0 10px 20px rgba(0, 219, 222, 0.2);
 }
 
 .contact-item i {
@@ -1022,20 +1103,15 @@ body {
 
 .social-icon:hover {
     transform: translateY(-5px) scale(1.1);
-    box-shadow: 0 10px 20px rgba(0, 219, 222, 0.3);
     color: white;
 }
 
 .social-icon.github:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: none;
 }
 
 .social-icon.facebook:hover::before {
     background: linear-gradient(45deg, #1877f2, #00b0ff);
-}
-
-.social-icon.linkedin:hover::before {
-    background: linear-gradient(45deg, #0077b5, #00a0dc);
 }
 
 .social-icon.instagram:hover::before {
@@ -1091,7 +1167,6 @@ footer p {
     visibility: hidden;
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     z-index: 99;
-    box-shadow: 0 0 20px rgba(255, 42, 109, 0.5);
 }
 
 .back-to-top.active {
@@ -1101,7 +1176,6 @@ footer p {
 
 .back-to-top:hover {
     transform: translateY(-5px) scale(1.1);
-    box-shadow: 0 0 30px rgba(255, 42, 109, 0.8);
 }
 
 .back-to-top-tooltip {
@@ -1137,6 +1211,10 @@ footer p {
     .typewriter {
         font-size: 1rem;
     }
+    
+    .neon-title {
+        font-size: 3rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1165,11 +1243,11 @@ footer p {
         font-size: 2rem;
     }
     
-    .about-content {
+    .profile-header {
         flex-direction: column;
     }
     
-    .skills-content {
+    .skills-container {
         flex-direction: column;
     }
     
@@ -1179,6 +1257,19 @@ footer p {
     
     .floating-nav {
         display: none;
+    }
+    
+    .hobby-card {
+        width: 120px;
+        height: 150px;
+    }
+    
+    .hobby-card-back p {
+        font-size: 0.7rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
     }
 }
 
@@ -1195,15 +1286,32 @@ footer p {
         font-size: 1.2rem;
     }
     
-    .section-title {
-        font-size: 2rem;
-    }
-    
     .contact-content {
         flex-direction: column;
     }
     
     .social-links {
         margin-top: 1rem;
+    }
+    
+    .hobby-card {
+        width: 100px;
+        height: 130px;
+    }
+    
+    .hobby-icon {
+        font-size: 1.5rem;
+    }
+    
+    .hobby-card p {
+        font-size: 0.9rem;
+    }
+    
+    .profile-title h1 {
+        font-size: 2rem;
+    }
+    
+    .profile-subtitle {
+        font-size: 1rem;
     }
 }

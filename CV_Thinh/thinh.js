@@ -244,6 +244,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function checkScroll() {
         const sections = document.querySelectorAll('.section');
         const projects = document.querySelectorAll('.project-item');
+        const hobbyCards = document.querySelectorAll('.hobby-card');
         const windowHeight = window.innerHeight;
         
         sections.forEach(section => {
@@ -260,6 +261,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (section.classList.contains('projects-section')) {
                     animateProjects();
                 }
+                
+                if (section.classList.contains('hobby-section')) {
+                    animateHobbyCards();
+                }
             }
         });
         
@@ -275,6 +280,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Hiệu ứng cho thẻ sở thích
+    function animateHobbyCards() {
+        const hobbyCards = document.querySelectorAll('.hobby-card');
+        hobbyCards.forEach((card, index) => {
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 150);
+        });
+    }
+    
     // Hiệu ứng cho thanh kỹ năng
     function animateSkills() {
         const skillBars = document.querySelectorAll('.skill-level');
@@ -283,7 +299,7 @@ document.addEventListener('DOMContentLoaded', function() {
             bar.style.width = '0';
             setTimeout(() => {
                 bar.style.width = width;
-                bar.style.boxShadow = `0 0 10px ${getRandomNeonColor()}`;
+                bar.style.boxShadow = `0 0 15px ${getRandomNeonColor()}`;
             }, index * 200);
         });
     }
@@ -328,7 +344,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', checkScroll);
     
     // Hiệu ứng hover cho các item
-    document.querySelectorAll('.project-item, .info-item, .hobby-item, .career-goal, .contact-item').forEach(item => {
+    document.querySelectorAll('.project-item, .info-item, .hobby-card, .career-goal, .contact-item').forEach(item => {
         item.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-10px) scale(1.02)';
             this.style.boxShadow = `0 15px 30px ${getRandomNeonColor()}80`;
@@ -351,5 +367,54 @@ document.addEventListener('DOMContentLoaded', function() {
         icon.addEventListener('mouseleave', function() {
             this.style.transform = '';
         });
+    });
+    
+    // Kiểm tra kỹ năng khi load trang
+    function checkSkills() {
+        animateSkills();
+    }
+});
+document.addEventListener('DOMContentLoaded', function() {
+    const hobbyCards = document.querySelectorAll('.hobby-card');
+    const allImageSets = document.querySelectorAll('.hobby-images');
+    
+    hobbyCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            // Ẩn tất cả các bộ ảnh trước
+            allImageSets.forEach(set => {
+                set.classList.remove('active');
+            });
+            
+            // Hiển thị bộ ảnh tương ứng
+            const targetId = this.getAttribute('data-target');
+            const targetImages = document.getElementById(targetId);
+            if (targetImages) {
+                targetImages.classList.add('active');
+            }
+        });
+        
+        // Trên mobile có thể thêm sự kiện click
+        card.addEventListener('click', function() {
+            // Ẩn tất cả các bộ ảnh trước
+            allImageSets.forEach(set => {
+                set.classList.remove('active');
+            });
+            
+            // Hiển thị bộ ảnh tương ứng
+            const targetId = this.getAttribute('data-target');
+            const targetImages = document.getElementById(targetId);
+            if (targetImages) {
+                targetImages.classList.add('active');
+            }
+        });
+    });
+    
+    // Ẩn ảnh khi click ra ngoài
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.hobby-card') && !e.target.closest('.hobby-images')) {
+            allImageSets.forEach(set => {
+                set.classList.remove('active');
+            });
+        }
     });
 });
