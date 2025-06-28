@@ -1252,3 +1252,152 @@ body.light-mode .moon-icon {
     font-size: 1.5rem;
   }
 }
+/* ===========================
+   CONTACT FORM SECTION
+=========================== */
+#contact {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.contact-form-card {
+    max-width: 700px;
+    margin: 30px auto 0;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05); /* Nền hơi trong suốt */
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 207, 255, 0.1);
+    backdrop-filter: blur(5px); /* Hiệu ứng blur nhẹ */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: left; /* Đặt lại văn bản về bên trái trong card */
+}
+
+.contact-form-card p {
+    color: var(--text-color);
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--accent-green); /* Màu sắc nổi bật cho label */
+    text-shadow: 0 0 5px rgba(0, 255, 148, 0.3);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.03); /* Nền input trong suốt hơn */
+    border: 1px solid var(--accent-blue);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 0 5px rgba(0, 207, 255, 0.1);
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: var(--accent-pink);
+    box-shadow: 0 0 15px rgba(255, 60, 172, 0.4);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.contact-form textarea {
+    resize: vertical; /* Cho phép thay đổi kích thước theo chiều dọc */
+    min-height: 120px;
+}
+
+.contact-form .submit-btn {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-green));
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 207, 255, 0.5);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.contact-form .submit-btn:hover {
+    background: linear-gradient(45deg, var(--accent-green), var(--accent-pink));
+    box-shadow: 0 0 25px rgba(0, 255, 148, 0.7), 0 0 35px rgba(255, 60, 172, 0.7);
+    transform: translateY(-2px);
+}
+
+.contact-info {
+    text-align: center;
+    margin-top: 30px;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.contact-info a {
+    color: var(--accent-blue);
+    font-weight: 600;
+}
+
+.contact-info a:hover {
+    color: var(--accent-pink);
+}
+
+/* Light mode adjustments for contact form */
+body.light-mode .contact-form-card {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .contact-form-card p,
+body.light-mode .contact-info {
+    color: var(--text-color); /* Ensure text is dark in light mode */
+}
+
+body.light-mode .contact-form label {
+    color: var(--accent-green);
+    text-shadow: none;
+}
+
+body.light-mode .contact-form input[type="text"],
+body.light-mode .contact-form input[type="email"],
+body.light-mode .contact-form textarea {
+    background: rgba(240, 240, 240, 0.7);
+    border-color: var(--accent-blue);
+    color: var(--text-color);
+    box-shadow: inset 0 0 5px rgba(0, 123, 255, 0.05);
+}
+
+body.light-mode .contact-form input[type="text"]:focus,
+body.light-mode .contact-form input[type="email"]:focus,
+body.light-mode .contact-form textarea:focus {
+    border-color: var(--accent-pink);
+    box-shadow: 0 0 15px rgba(220, 53, 69, 0.4);
+    background: rgba(250, 250, 250, 0.8);
+}
+
+body.light-mode .contact-form .submit-btn {
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-green));
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.4);
+    text-shadow: none;
+}
+
+body.light-mode .contact-form .submit-btn:hover {
+    background: linear-gradient(45deg, var(--accent-green), var(--accent-pink));
+    box-shadow: 0 0 25px rgba(40, 167, 69, 0.6), 0 0 35px rgba(220, 53, 69, 0.6);
+}
