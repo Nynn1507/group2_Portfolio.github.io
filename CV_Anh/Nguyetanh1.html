@@ -1,648 +1,249 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nguyetanh's Universe</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #0a0a0a;
-            color: white;
-            line-height: 1.6;
-        }
-
-.animated-title {
-  white-space: nowrap; /* Ngăn chữ bị xuống dòng nếu quá dài */
-}
-
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80');
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .hero h1 {
-            font-size: 5rem;
-            margin: 0;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            
-        }
-        
-        .hero h2 {
-            font-size: 3rem;
-            margin: 0;
-            font-weight: normal;
-            letter-spacing: 3px;
-        }
-        
-        .hero h3 {
-            font-size: 1.5rem;
-            margin-top: 30px;
-            letter-spacing: 2px;
-        }
-        
-        .hero h4 {
-            font-size: 1.2rem;
-            margin-top: 20px;
-            letter-spacing: 1px;
-        }
-        
-        .profile-image-container {
-            width: 200px;
-            height: 200px;
-            margin: 25px auto;
-            border-radius: 50%;
-            border: 5px solid #4CAF50;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-        }
-
-        .profile-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .content {
-            padding: 50px 20%;
-            background-color: #121212;
-        }
-        
-        .section {
-            margin-bottom: 40px;
-        }
-        
-        .section h2 {
-            font-size: 2rem;
-            border-bottom: 2px solid #444;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            color: #4CAF50;
-        }
-        
-        .info-list {
-            list-style-type: none;
-            padding: 0;
-        }
-        
-        .info-list li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-left: 25px;
-        }
-        
-        .info-list li:before {
-            content: "•";
-            color: #4CAF50;
-            position: absolute;
-            left: 0;
-        }
-        
-        .info-list strong {
-            color: #4CAF50;
-        }
-        
-        .checkbox-list {
-            list-style-type: none;
-            padding: 0;
-        }
-        
-        .checkbox-list li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-left: 30px;
-        }
-        
-        .checkbox-list li:before {
-            content: "";
-            display: inline-block;
-            width: 18px;
-            height: 18px;
-            border: 2px solid #4CAF50;
-            position: absolute;
-            left: 0;
-            top: 2px;
-        }
-        
-        .checkbox-list li[data-checked="true"]:before {
-            content: "✓";
-            color: #4CAF50;
-            text-align: center;
-            line-height: 18px;
-        }
-        
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        
-        .skills-column {
-            flex: 1;
-            min-width: 200px;
-        }
-        
-        .skills-list {
-            list-style-type: none;
-            padding: 0;
-        }
-        
-        .skills-list li {
-            margin-bottom: 8px;
-            padding: 8px 12px;
-            background-color: #1e1e1e;
-            border-radius: 4px;
-            display: inline-block;
-            margin-right: 8px;
-            transition: all 0.3s ease;
-        }
-        
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .contact-icon {
-            margin-right: 10px;
-            color: #4CAF50;
-            font-size: 1.2rem;
-        }
-        
-        hr {
-            border: 0;
-            height: 1px;
-            background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(255,255,255,0.75), rgba(0,0,0,0));
-            margin: 40px 0;
-        }
-
-        #mode-toggle, #back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            background: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            font-size: 1.2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #back-to-top {
-            bottom: 80px;
-            display: none;
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            .hero h2 {
-                font-size: 2rem;
-            }
-            
-            .content {
-                padding: 50px 10%;
-            }
-            
-            .skills-container {
-                flex-direction: column;}
-            }
-        /* Animation classes */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .fade-in.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .interest-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 20px;
-}
-
-.interest-item {
-    text-align: center;
-    max-width: 120px;
-}
-
-.interest-item img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    border-radius: 12px;
-    background-color: #1e1e1e;
-    padding: 10px;
-    transition: transform 0.3s ease;
-}
-<hr>
-
-<div class="section fade-in">
-    <h2><i class="fas fa-share-alt"></i> Social Media</h2>
-    <div class="social-links">
-        <a href="https://www.facebook.com/nguyet.anh.679946"social-icon facebook">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://www.instagram.com/nguyetanh311005"social-icon instagram">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://github.com/anh-05-dev"social-icon github">
-            <i class="fab fa-github"></i>
-        </a>
-    </div>
-</div>
-
-.interest-item img:hover {
-    transform: scale(1.1);
-}
-
-.interest-item p {
-    margin-top: 10px;
-    color: #fff;
-    font-weight: bold;
-}
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 20px;
-}
-
-.social-icon {
-    font-size: 2rem;
-    color: white;
-    background-color: #1e1e1e;
-    
-    padding: 15px;
-    border-radius: 50%;
-    transition: transform 0.3s, background-color 0.3s;
-    text-decoration: none;
-}
-
-.social-icon:hover {
-    transform: scale(1.2);
-    background-color: #4CAF50;
-    color: #121212;
-}
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #4CAF50; /* xanh lá */
-    color: white;
-    padding: 10px 0;
-    z-index: 1000;
-    text-align: left;
-}
-
-.navbar span {
-    margin-left: 15px;
-}
-
-.navbar a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    transition: color 0.3s;
-}
-
-.navbar a:hover {
-    color: #1B5E20; /* xanh lá đậm */
-}
-
-
-
-    </style>
-    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Nynn's portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- 🔗 ICONS + JS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
 </head>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <body>
-<div class="header_nav navbar">
-    <span><a href="#profile">PROFILE</a></span>
-    <span><a href="#info">INFOMATION</a></span>
-    <span><a href="#career">CAREER</a></span>
-    <span><a href="#inter">INTEREST</a></span>
-    <span><a href="#skill">SKILL</a></span>
-    <span><a href="#proj">PROJECT</a></span>
-    <span><a href="#certi">CERTIFICATE</a></span>
-    <span><a href="#contact">CONTACT</a></span>
-</div>
-    <div class="hero">
-        <h1 class="fade-in">WELCOME TO MY</h1>
-        <h2 class="fade-in">PROFILE</h2>
-        <h3 class="fade-in">Tran Thi Nguyet Anh</h3>
-        
-        <!-- Ảnh cá nhân hình tròn -->
-        <div class="profile-image-container fade-in">
-            <img src="nguyetanh.jpg" alt="Tran Thi Nguyet Anh" class="profile-image">
-        </div>
-        
-        <h4 class="fade-in">EXPLORE MY WORLD</h4>
+
+  <!-- ✨ INTRO – appears first -->
+  <section id="intro" class="fullscreen stars">
+    <h1 class="intro-title">
+        <span id="intro-typewriter"></span>
+    </h1>
+    <button id="exploreBtn" class="btn-explore">
+        <span class="label">EXPLORE</span>
+    </button>
+    
+    <div class="sparkles-container">
+        <div class="sparkle" style="left: 10%; animation-delay: 0.5s; animation-duration: 2.5s; width: 4px; height: 4px;"></div>
+        <div class="sparkle" style="left: 25%; animation-delay: 1.2s; animation-duration: 3.0s; width: 5px; height: 5px;"></div>
+        <div class="sparkle" style="left: 40%; animation-delay: 0.8s; animation-duration: 2.8s; width: 3px; height: 3px;"></div>
+        <div class="sparkle" style="left: 55%; animation-delay: 1.7s; animation-duration: 3.2s; width: 6px; height: 6px;"></div>
+        <div class="sparkle" style="left: 70%; animation-delay: 0.3s; animation-duration: 2.7s; width: 4.5px; height: 4.5px;"></div>
+        <div class="sparkle" style="left: 85%; animation-delay: 1.0s; animation-duration: 3.1s; width: 5.5px; height: 5.5px;"></div>
+        <div class="sparkle" style="left: 5%; animation-delay: 2.0s; animation-duration: 2.9s; width: 3.5px; height: 3.5px;"></div>
+        <div class="sparkle" style="left: 65%; animation-delay: 0.7s; animation-duration: 2.6s; width: 5px; height: 5px;"></div>
     </div>
-    <div class="content">
-        <div class="section fade-in" id="profile">
-            <h2>Profile</h2>
-            <p>I'm an IT student at UTH with a strong foundation in programming, fluent in English, and skilled in leadership and creativity. I’m eager to solve real-world problems and thrive in dynamic environments.</p>
+  </section>
+
+
+
+  <!-- 🌌 EVERYTHING ELSE is wrapped inside #profile (hidden until Explore) -->
+  <main id="profile" class="hidden profile-vibe-banhbeo">
+
+    <!-- 🔮 BANNER -->
+    <header id="banner" class="gradient blur">
+      <h2 class="glow-text">
+        <span id="banner-typewriter"></span>
+      </h2>
+      <div class="butterflies">
+        <div class="butterfly" style="left: 10%; animation-delay: 0s;">🦋</div>
+        <div class="butterfly" style="left: 30%; animation-delay: 2s;">🦋</div>
+        <div class="butterfly" style="left: 50%; animation-delay: 4s;">🦋</div>
+        <div class="butterfly" style="left: 70%; animation-delay: 1s;">🦋</div>
+        <div class="butterfly" style="left: 90%; animation-delay: 3s;">🦋</div>
+      </div>
+
+    </header>
+
+    
+    <!-- 📝 PERSONAL INFO -->
+    <section id="about" class="section-glass">
+      <h2 class="section-title">INTRODUCE</h2>
+      <div class="intro-content">
+        <div class="info-card">
+          <p>Hi,I'm Nguyet Anh 👋</p>
+          <p>I'm an IT student at UTH with a strong foundation in programming, fluent in English, and skilled in leadership and creativity. I’m eager to solve real-world problems and thrive in dynamic environments. ✨</p>
         </div>
-        
-        <hr>
-        
-       <div class="section fade-in" style="display: flex;" id = "info">
-    <div style="flex: 1;">
-        <h2>Information</h2>
-        <ul class="info-list">
-            <li><strong>Date Of Birth:</strong> 31/10/2005</li>
-            <li><strong>Sexology:</strong> Nữ</li>
-            <li><strong>SĐT:</strong> 0356649437</li>
-            <li><strong>Email:</strong> ttnguyetanh05@gmail.com</li>
-            <li><strong>Direction:</strong> TP.Hồ Chí Minh, Việt Nam</li>
-            <li><strong>Education:</strong> Ho Chi Minh City University of Transport</li>
-            <li><strong>GPA:</strong> 3.66/4.0</li>
-        </ul>
-    </div>
-    <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
-        <img src="ct.png" alt="Your Image" style="max-width: 40%; height: auto;">
-    </div>
-</div>
-<hr>
-        
-        <div class="section fade-in" id="career">
-            <h2>Career Goals</h2>
-            <ul class="checkbox-list">
-                <li data-checked="false"> To apply my programming knowledge and soft skills in real-world projects or internships, gain hands-on experience, and adapt to a professional IT working environment.</li>
-                <li data-checked="true">To become a skilled software developer or IT specialist who can design and build modern technology solutions, contributing to innovative and impactful projects in the tech industry.</li>
-            </ul>
+      </div>
+
+      <h2 class="section-title">ABOUT ME</h2>
+      <div class="about-me-grid"> <figure class="avatar">
+          <img src="image/nguyetanh.jpg"  />
+        </figure>
+        <div class="info-card info-table">
+          <div class="row"><p><strong>Full name:</strong> Tran Thi Nguyet Anh</p><p><strong>Gender:</strong> Female</p></div>
+          <div class="row"><p><strong>Birth date:</strong> 31 oct 2005</p><p><strong>Zodiac:</strong> Cancer</p></div>
+          <div class="row"><p><strong>Phone:</strong> 0356649437</p><p><strong>Status:</strong> Single</p></div>
+          <div class="row"><p><strong>Major:</strong> Information Technology</p><p><strong>University:</strong> Ho Chi Minh City University of Transport</p></div>
+          <div class="row"><p><strong>Address:</strong> Xo Viet Nghe Tinh, Binh Thanh Dist, HCMC</p><p><strong>Email:</strong> <a href="mailto:ttnguyetanh05@gmail.com">ttnguyetanh05@gmail.com</a></p></div>
         </div>
-        
-        <hr>
-        
-        <div class="section fade-in" id="inter">
-            <h2>Interest</h2>
-            <ul class="skills-list">
-                <li>Communicate</li>
-                <li><a href="https://anh-05-dev.github.io/travel/" target="_blank" style="color: inherit; text-decoration: none;">Travel</a></li>
-                 <li><a href="https://anh-05-dev.github.io/nhac/" target="_blank" style="color: inherit; text-decoration: none;">Music</a></li>
-                <li>Billiards</li>
-                <li>Gardening</li>
-            </ul>
-        </div>
-        
-        <hr>
-        
-         <div class="section fade-in"  id="skill">
-            <h2>Skills & Languages</h2>
-            <div class="skills-languages-container">
-                <div class="skills-section">
-                    <h3 class="section-title">Skills</h3>
-                    <ul class="skills-list">
-                        <li>Creativity</li>
-                        <li>Flexibility</li>
-                        <li>Leadership skills</li>
-                        <li>Computer skills</li>
-                        <li>Python</li>
-                    </ul>
-                </div>
-                    
-                <div class="languages-section">
-                    <h3 class="section-title">Languages</h3>
-                    <ul class="skills-list">
-                        <li>Vietnamese</li>
-                        <li>English</li>
-                    </ul>
-                </div>
+      </div>
+    </section>
+    <!-- 🎯 Career Goals -->
+    <section id="goals" class="section-gradient">
+      <h2 class="section-title">GOALS</h2>
+      <ul class="pill-list">
+        <li>To apply my programming knowledge and soft skills in real-world projects or internships, gain hands-on experience, and adapt to a professional IT working environment. &amp; UI/UX design</li>
+        <li>To become a skilled software developer or IT specialist who can design and build modern technology solutions, contributing to innovative and impactful projects in the tech industry.</li>
+        <li>Learn a third language</li>
+      </ul>
+    </section>
+
+    <!-- 💖 HOBBIES -->
+    <section id="hobbies" class="section-light">
+      <h2 class="section-title">HOBBIES</h2>
+
+      <div class="card-wrap">
+        <div class="flip-card" onclick="window.open('https://anh-05-dev.github.io/travel', '_blank')">
+          <div class="flip-inner">
+            <div class="flip-front">✈ Tralvel</div>
+            <div class="flip-back travel">
+              <i class="fas fa-film fa-3x"></i>
+              <p>Places visited!</p>
             </div>
-       <div class="certificate-section" id="certi">
-  <h2 class="title">Certificate</h2>
-  <hr />
-  <div class="certificate-list">
+          </div>
+        </div>
+        <div class="flip-card" onclick="window.open('https://photos.app.goo.gl/rgwgwP18Q6SGHAwF6', '_blank')">
+          <div class="flip-inner">
+            <div class="flip-front">Photography</div>
+            <div class="flip-back novels">
+              <i class="fas fa-book fa-3x"></i>
+              <p>Know about me !</p>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card music" onclick="window.open('https://open.spotify.com/playlist/61Gexb7mkHBdrmuD4ULHSq?si=6bb3bc57ba5f44b1', '_blank')">
+          <div class="flip-inner">
+            <div class="flip-front">🎵 MUSIC</div>
+            <div class="flip-back music">
+              <i class="fab fa-spotify fa-3x"></i>
+              <p>Listen together with me!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card chess" onclick="window.open('https://photos.app.goo.gl/69XESXgk9D6tDSSx6', '_blank')">
+          <div class="flip-inner">
+            <div class="flip-front">🗣︎ Communicate</div>
+            <div class="flip-back chess">
+              <i class="fas fa-book fa-3x"></i>
+              <p>Together with my friend!!!??? </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🛠️ SKILLS & LANGUAGES -->
+    <section id="skills" class="section-glow">
+      <h2 class="section-title">SKILLS&nbsp;&amp;&nbsp;LANGUAGES</h2>
+      <div class="skill-grid">
+        <!-- Coding skills -->
+        <div class="glass-box">
+          <h3>&lt;/&gt;&nbsp;Coding</h3>
+          <div class="bar"><span style="--w:60%">HTML/CSS</span></div>
+          <div class="bar"><span style="--w:50%">JavaScript</span></div>
+          <div class="bar"><span style="--w:40%">Python</span></div>
+          <div class="bar"><span style="--w:40%">Java</span></div>
+        </div>
+        <!-- Languages -->
+        <div class="glass-box">
+          <h3>&#x1F4AC;&nbsp;Languages</h3>
+          <div class="bar"><span style="--w:100%">Vietnamese </span></div>
+          <div class="bar"><span style="--w:60%">English </span></div>
+          <div class="bar"><span style="--w:10%">Chinese </span></div>
+        </div>
+      </div>
+    </section>
+
+        <!-- CERTIFICATES -->
+<section id="certificate" class="section-glow">
+  <h2 class="section-title">CERTIFICATES & AWARDS</h2>
+
+  <div class="certificates-cards-wrapper">
     <div class="certificate-item">
+     .........
     </div>
   </div>
-</div>
-<div class="project-section" id=" proj">
-  <h2 class="title">Projects</h2>
-  <hr />
-  <div class="project-list">
-    
-    <div class="project-item">
-      <h3>Skincare Booking App</h3>
-      <p>Ứng dụng web đặt lịch chăm sóc da, giúp khách hàng chọn dịch vụ và đặt lịch nhanh chóng, đồng thời hỗ trợ spa quản lý lịch hẹn.</p>
-      <p><strong>Chức năng:</strong> Đăng ký, đăng nhập, đặt lịch, gửi email xác nhận, quản lý lịch hẹn.</p>
-      <p><strong>Công nghệ:</strong> Django, MySQL, HTML, CSS, JavaScript.</p>
-      <a href="https://github.com/Justhathanh/Project_Java_SkinCareBooking" class="github-link" target="_blank">🔗 View on GitHub</a>
-    </div>
+</section>
+
+<div id="tkdImagesModal">
+  <button class="close-button" onclick="closeTkdModal()">X</button>
+  <div class="modal-content">
   </div>
 </div>
 
-        
-        <div class="section fade-in" id="contact">
-            <h2>Contact</h2>
-            <div class="contact-section">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <span class="contact-icon"><i class="fas fa-envelope"></i></span>
-                        <span>ttnguyetanh05@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-icon"><i class="fas fa-phone"></i></span>
-                        <span>0356649437</span>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span>
-                        <span>TP.Hồ Chí Minh, Việt Nam</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-                <hr>
-    <div class="section fade-in">
-        <h2><i class="fas fa-share-alt"></i> Social Network</h2>
-            <div class="social-links">
-            <p>FaceBook</p><a href="https://www.facebook.com/nguyet.anh.679946" class="social-icon" target="_blank" title="Facebook">
-                <i class="fab fa-facebook-f"></i>
-                </a>
-                <p>Instagram</p><a href="https://www.instagram.com/nguyetanh311005" class="social-icon" target="_blank" title="Instagram">
-                <i class="fab fa-instagram"></i>
-                </a>
-                <p>Githup</p><a href="https://github.com/anh-05-dev" class="social-icon" target="_blank" title="GitHub">
-            <i class="fab fa-github"></i>
-        </a>
+
+
+    <!-- 🚀 PROJECTS -->
+    <section id="projects" class="section-glow">
+      <h2 class="section-title"> 🚀 PROJECTS </h2>
+      <div class="project-wrap">
+        <article class="project-card">
+          <h3>Skincare Booking</h3>
+          <p>Ứng dụng web đặt lịch chăm sóc da, giúp khách hàng chọn dịch vụ và đặt lịch nhanh chóng, đồng thời hỗ trợ spa quản lý lịch hẹn.</p>
+          <p><strong>Contribute:</strong>Fondend, Login, cart, checkout…</p>
+          <p><strong>Stack:</strong> Java&nbsp;/ HTML&nbsp;CSS&nbsp;JS</p>
+          <a href="https://github.com/Justhathanh/Project_Java_SkinCareBooking" class="link-arrow">Details →</a>
+        </article>
+
+        <article class="project-card">
+          <h3>Web introduce myself</h3>
+          <p>Ứng dụng giới thiệu về bản thân </p>
+          <p><strong>Stack:</strong> HTML&nbsp;CSS&nbsp;JS</p>
+          <a href="https://github.com/Nynn1507/group2_Portfolio.github.io.git" class="link-arrow">Details →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- 📞 CONTACT -->
+    <section id="contact" class="section-dark">
+      <h2 class="section-title">CONTACT</h2>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/nguyet.anh.679946" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/nguyetanh311005"     target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com/anh-05-dev"            target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+      <p>Email: <a href="mailto:ttnguyetanh05@gmail.com">ttnguyetanh05@gmail.com</a></p>
+      <p>Phone: 0356649437</p>
+    </section>
+
+    <!-- ⬆️ BACK TO TOP -->
+    <button id="topBtn" title="Back to top">⬆</button>
+
+    <div class="bubbles">
+        <div class="bubble" style="left: 10%; width:8px; height:8px; animation-duration:7s;"></div>
+        <div class="bubble" style="left: 30%; width:12px; height:12px; animation-duration:9s;"></div>
+        <div class="bubble" style="left: 50%; width:10px; height:10px; animation-duration:8s;"></div>
+        <div class="bubble" style="left: 70%; width:14px; height:14px; animation-duration:10s;"></div>
+        <div class="bubble" style="left: 90%; width:6px; height:6px; animation-duration:6s;"></div>
     </div>
-</div>
 
-            </div>
-        </div>
+    <div class="sparkles">
+        <div class="sparkle" style="left: 15%; animation-duration:5s;"></div>
+        <div class="sparkle" style="left: 35%; animation-duration:6s;"></div>
+        <div class="sparkle" style="left: 55%; animation-duration:4s;"></div>
+        <div class="sparkle" style="left: 75%; animation-duration:7s;"></div>
+        <div class="sparkle" style="left: 85%; animation-duration:5.5s;"></div>
     </div>
 
-    <button id="mode-toggle"><i class="fas fa-moon"></i></button>
-    <button id="back-to-top"><i class="fas fa-arrow-up"></i></button>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 1. Hiệu ứng scroll mượt
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
 
-            // 2. Hiệu ứng fade-in khi scroll
-            const fadeInElements = () => {
-                const elements = document.querySelectorAll('.fade-in');
-                elements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementBottom = element.getBoundingClientRect().bottom;
-                    
-                    if (elementTop < window.innerHeight - 100 && elementBottom > 0) {
-                        element.classList.add('active');
-                    }
-                });
-            };
+    <!-- 🪄 FOOTER -->
+    <footer class="footer">
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="#intro">Home</a></li>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#skills">Skills & Languages</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#hobbies">Hobbies</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <p>
+        ✨ Made with 💖 by Nguyet Anh ✨<br>
+        🪄 © 2025 Tran Thi Nguyet Anh. Thanks for visiting!
+      </p>
+    </footer>
 
-            window.addEventListener('scroll', fadeInElements);
-            fadeInElements(); // Kích hoạt lần đầu
-
-            // 3. Tương tác với checkbox mục tiêu nghề nghiệp
-            const goalItems = document.querySelectorAll('.checkbox-list li');
-            goalItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    const isChecked = this.getAttribute('data-checked') === 'true';
-                    this.setAttribute('data-checked', !isChecked);
-                });
-            });
-
-            // 4. Hiệu ứng hover cho các skill
-            const skillItems = document.querySelectorAll('.skills-list li');
-            skillItems.forEach(skill => {
-                skill.addEventListener('mouseenter', function() {
-                    this.style.backgroundColor = '#4CAF50';
-                    this.style.color = '#121212';
-                    this.style.transform = 'scale(1.05)';
-                });
-                
-                skill.addEventListener('mouseleave', function() {
-                    this.style.backgroundColor = '#1e1e1e';
-                    this.style.color = 'white';
-                    this.style.transform = 'scale(1)';
-                });
-            });
-
-            // 5. Dark/light mode toggle
-            const modeToggle = document.getElementById('mode-toggle');
-            modeToggle.addEventListener('click', function() {
-                document.body.classList.toggle('light-mode');
-                
-                if (document.body.classList.contains('light-mode')) {
-                    modeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-                    document.body.style.backgroundColor = '#f5f5f5';
-                    document.body.style.color = '#333';
-                    document.querySelector('.content').style.backgroundColor = '#fff';
-                    document.querySelectorAll('.section h2').forEach(el => el.style.color = '#2E7D32');
-                } else {
-                    modeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-                    document.body.style.backgroundColor = '#0a0a0a';
-                    document.body.style.color = 'white';
-                    document.querySelector('.content').style.backgroundColor = '#121212';
-                    document.querySelectorAll('.section h2').forEach(el => el.style.color = '#4CAF50');
-                }
-            });
-
-            // 6. Hiệu ứng gõ chữ cho tiêu đề hero
-            const heroTexts = ['WELCOME TO MY', 'UNIVERSE', 'Nguyet Anh ', 'EXPLORE MY WORLD'];
-            const heroElements = [
-                document.querySelector('.hero h1'), 
-                document.querySelector('.hero h2'), 
-                document.querySelector('.hero h3'), 
-                document.querySelector('.hero h4')
-            ];
-            
-            function typeWriter(element, text, i = 0, cb = null) {
-                if (i < text.length) {
-                    element.textContent = text.substring(0, i + 1);
-                    setTimeout(() => typeWriter(element, text, i + 1, cb), 100);
-                } else if (cb) {
-                    setTimeout(cb, 500);
-                }
-            }
-            
-            function startTyping(index = 0) {
-                if (index < heroElements.length) {
-                    heroElements[index].textContent = '';
-                    typeWriter(heroElements[index], heroTexts[index], 0, () => startTyping(index + 1));
-                }
-            }
-            
-            // Bắt đầu hiệu ứng sau 1 giây
-            setTimeout(startTyping, 1000);
-
-            // 7. Nút "Back to Top"
-            const backToTop = document.getElementById('back-to-top');
-            backToTop.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    backToTop.style.display = 'flex';
-                } else {
-                    backToTop.style.display = 'none';
-                }
-            });
-
-            // 8. Hiệu ứng hover cho ảnh cá nhân
-            const profileImage = document.querySelector('.profile-image-container');
-            if (profileImage) {
-                profileImage.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.05) rotate(5deg)';
-                    this.style.boxShadow = '0 8px 25px rgba(76, 175, 80, 0.6)';
-                });
-                profileImage.addEventListener('mouseleave', function() {
-                    this.style.transform = 'scale(1) rotate(0)';
-                    this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
-                });
-            }
-        });
-    </script>
-    
+<script src="script.js"></script>
 </body>
 </html>
+
