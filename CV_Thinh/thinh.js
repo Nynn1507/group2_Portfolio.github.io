@@ -208,25 +208,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Back to Top Button
-    const backToTop = document.getElementById('back-to-top');
-    
-    backToTop.addEventListener('mouseenter', function() {
-        this.querySelector('.back-to-top-tooltip').style.opacity = '1';
-        this.querySelector('.back-to-top-tooltip').style.top = '-50px';
+    const topBtn = document.getElementById('topBtn');
+  
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+        topBtn.classList.add('show');
+        } else {
+        topBtn.classList.remove('show');
+        }
     });
-    
-    backToTop.addEventListener('mouseleave', function() {
-        this.querySelector('.back-to-top-tooltip').style.opacity = '0';
-        this.querySelector('.back-to-top-tooltip').style.top = '-40px';
+
+    topBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-    
-    backToTop.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-    
+        
     // Scroll Events
     window.addEventListener('scroll', function() {
         // Back to Top Button
