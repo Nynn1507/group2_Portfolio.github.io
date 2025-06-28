@@ -281,10 +281,13 @@ body.light-mode .moon-icon {
 /* ===========================
    SECTION TITLE
 =========================== */
+/* ===========================
+   SECTION TITLE
+=========================== */
 .section-title {
   font-size: 2.5rem;
   font-weight: 700;
-  text-align: center;
+  text-align: center; /* Make sure this is present */
   margin: 40px 0 20px;
   /* Gradient cho tiêu đề */
   background: linear-gradient(90deg, var(--accent-blue), var(--accent-green), var(--accent-pink));
@@ -301,7 +304,7 @@ body.light-mode .moon-icon {
   background: var(--accent-blue);
   border-radius: 2px;
   box-shadow: 0 0 10px var(--accent-blue);
-  margin: 10px auto 0;
+  margin: 10px auto 0; /* 'margin: 0 auto;' will center the underline */
 }
 
 /* ===========================
@@ -481,13 +484,96 @@ body.light-mode .moon-icon {
   margin: 20px auto 40px auto; /* Tăng khoảng cách dưới */
 }
 
-.about-me-grid { 
-  display: grid;
-  grid-template-columns: 1fr 2fr; /* Ảnh chiếm 1 phần, thông tin chiếm 2 phần */
-  gap: 30px; /* Tăng khoảng cách giữa ảnh và thông tin */
-  max-width: 1000px;
-  margin: 20px auto;
-  align-items: center; /* Căn giữa theo chiều dọc */
+/* Base styling for the card */
+.card {
+    background-color: var(--bg-alt); /* Slightly lighter dark for card background */
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 16px rgba(0, 255, 192, 0.2); /* Greenish glow */
+    width: 80%;
+    max-width: 900px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden; /* For the background circles */
+    margin-left: auto; /* Center the cards */
+    margin-right: auto; /* Center the cards */
+}
+
+/* Background circles for cards (optional, to mimic the image) */
+.card::before, .card::after {
+    content: '';
+    position: absolute;
+    background-color: rgba(0, 255, 192, 0.1);
+    border-radius: 50%;
+    z-index: 0;
+    filter: blur(20px);
+}
+
+.card::before {
+    width: 80px;
+    height: 80px;
+    top: -20px;
+    left: -20px;
+}
+
+.card::after {
+    width: 120px;
+    height: 120px;
+    bottom: -30px;
+    right: -30px;
+    opacity: 0.7;
+}
+
+.profile-content {
+    font-size: 1.1em;
+    line-height: 1.6;
+    text-align: center;
+    position: relative; /* To bring content above circles */
+    z-index: 1;
+}
+
+.information-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    position: relative; /* To bring content above circles */
+    z-index: 1;
+}
+
+.profile-picture-container {
+    border: 5px solid var(--accent-green); /* Green border around image */
+    border-radius: 50%;
+    padding: 5px;
+    display: inline-block;
+    background: linear-gradient(to right, var(--accent-green), var(--accent-blue)); /* Gradient border effect */
+    overflow: hidden; /* Ensures image stays within circular border */
+}
+
+.profile-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block; /* Remove extra space below image */
+}
+
+.information-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.information-details ul li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.information-details ul li strong {
+    color: var(--accent-green);
+    margin-right: 8px;
 }
 
 
@@ -616,6 +702,30 @@ body.light-mode .moon-icon {
     order: -1;
     margin-bottom: 20px;
   }
+  /* Responsive adjustments for cards */
+  .card {
+      width: 95%;
+      padding: 20px;
+  }
+
+  .section-title {
+      font-size: 2em;
+  }
+
+  .profile-content,
+  .information-details ul li {
+      font-size: 1em;
+  }
+
+  .information-container {
+      flex-direction: column;
+      gap: 20px;
+  }
+
+  .profile-picture {
+      width: 150px;
+      height: 150px;
+  }
 }
 
 /* ===========================
@@ -624,6 +734,47 @@ body.light-mode .moon-icon {
 #goals {
   padding: 20px;
   text-align: center;
+}
+/* Styling for Career Goals list items to resemble skill bars */
+#career .checkbox-list {
+  list-style: none; /* Remove default list bullets */
+  padding: 0;
+}
+
+#career .checkbox-list li {
+  background: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin-bottom: 10px; /* Space between list items */
+  color: var(--text-color);
+  font-size: 1rem;
+  line-height: 1.4;
+  box-shadow: 0 0 5px rgba(0, 207, 255, 0.2); /* Subtle glow */
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden; /* For pseudo-element background */
+}
+
+#career .checkbox-list li::before {
+  content: '\2713'; /* Checkmark icon */
+  color: var(--accent-green); /* Green color for checkmark */
+  font-weight: bold;
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+#career .checkbox-list li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px var(--accent-green); /* More prominent glow on hover */
+  background: rgba(0, 255, 148, 0.15); /* Slightly brighter background on hover */
+}
+
+/* Ensure the h2 inside the glass-box for career goals also uses the glass-box h3 styling for consistency */
+#career .glass-box h2 {
+  font-size: 1.5rem; /* Match h3 in skills */
+  margin-bottom: 20px;
+  color: var(--accent-green);
+  text-shadow: 0 0 8px rgba(0, 255, 148, 0.5);
 }
 
 .pill-list {
@@ -747,7 +898,7 @@ body.light-mode .moon-icon {
 
 .flip-back.music,
 .flip-back.chess {
-  cursor: pointer; /*  con trỏ chuột thành ngón tay bấm */
+  cursor: pointer; /* con trỏ chuột thành ngón tay bấm */
 }
 
 .flip-back.music p,
@@ -819,15 +970,6 @@ body.light-mode .moon-icon {
   text-align: center;
 }
 
-.certificates-cards-wrapper {
-  display: flex; /* xếp các thẻ ngang hàng */
-  flex-wrap: wrap; /* Cho phép xuống hàng trên màn hình nhỏ */
-  justify-content: center; /* Căn giữa các thẻ theo chiều ngang */
-  align-items: flex-start; /* Căn chỉnh các thẻ từ trên xuống */
-  max-width: 900px; /* Giới hạn chiều rộng, không sát mép */
-  margin: 20px auto; /* Căn giữa và tạo khoảng cách trên dưới */
-  gap: 20px; /* Khoảng cách giữa hai thẻ */
-}
 
 /* (Thẻ 1) */
 .flip-card.big {
@@ -870,69 +1012,6 @@ body.light-mode .moon-icon {
   transform: translateY(-3px); 
 }
 
-
-/* ===========================
-   MODAL HIỂN THỊ HÌNH ẢNH TAEKWONDO 
-=========================== */
-#tkdImagesModal {
-  display: none; /* Ẩn mặc định */
-  position: fixed; /* Hiển thị trên tất cả nội dung */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Căn giữa màn hình */
-  background: linear-gradient(135deg, rgba(159, 166, 168, 0.95), rgba(24, 144, 184, 0.95)); 
-  border: 1px solid var(--accent-blue);
-  border-radius: 12px;
-  padding: 30px; 
-  z-index: 1000; 
-  box-shadow: 0 0 40px var(--accent-blue); 
-  max-width: 90%; /* Giới hạn chiều rộng */
-  max-height: 90vh; /* Giới hạn chiều cao */
-  overflow-y: auto; /* Cho phép cuộn nếu nhiều hình */
-}
-
-#tkdImagesModal .modal-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Bố cục lưới  */
-  gap: 15px; /* Khoảng cách giữa các hình */
-  padding-top: 10px; /* Khoảng cách từ nút X đến hình ảnh */
-}
-
-#tkdImagesModal img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-  object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
-  /* Hiệu ứng animation từng hình từng hình nhảy vào */
-  opacity: 0; /* Ẩn ban đầu */
-  transform: translateY(50px) scale(0.7); /* Bắt đầu từ dưới và nhỏ hơn */
-  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Animation "nhảy" */
-}
-
-#tkdImagesModal img.show {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-#tkdImagesModal .close-button {
-  position: absolute;
-  top: 15px; /* Dịch xuống một chút */
-  right: 15px; /* Dịch vào một chút */
-  font-size: 1.8rem; /* Nút X lớn hơn */
-  font-weight: bold;
-  color: var(--accent-pink);
-  cursor: pointer;
-  background: none;
-  border: none;
-  outline: none;
-  transition: transform 0.2s, color 0.2s;
-}
-
-#tkdImagesModal .close-button:hover {
-  transform: rotate(90deg); /* Hiệu ứng xoay khi hover */
-  color: var(--accent-green); /* Đổi màu khi hover */
-}
 /* ===========================
    PROJECTS SECTION
 =========================== */
