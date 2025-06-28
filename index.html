@@ -1,399 +1,375 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Giới Thiệu Nhóm 2</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>
-    :root {
-      --color-primary: #8e44ad; /* Deep Purple */
-      --color-secondary: #3498db; /* Bright Blue */
-      --color-accent: #f39c12; /* Cosmic Orange */
-      --color-dark: #2c3e50; /* Darker Blue-Grey */
-      --color-light: #ecf0f1; /* Light Grey */
-      --color-bg: #0a0a2a; /* Deep Space Background */
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-    body {
-      background-color: var(--color-bg);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-      color: var(--color-light);
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    .bg-effect {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      overflow: hidden;
-    }
-
-    .star {
-      position: absolute;
-      background: rgba(255, 255, 255, 0.8);
-      border-radius: 50%;
-      animation: twinkle linear infinite;
-    }
-
-    .star-1 {
-      width: 3px;
-      height: 3px;
-      top: 10%;
-      left: 20%;
-      animation-duration: 5s;
-    }
-
-    .star-2 {
-      width: 2px;
-      height: 2px;
-      top: 50%;
-      left: 70%;
-      animation-duration: 7s;
-    }
-
-    .star-3 {
-      width: 4px;
-      height: 4px;
-      top: 80%;
-      left: 40%;
-      animation-duration: 6s;
-    }
-    
-    .star-4 {
-      width: 2.5px;
-      height: 2.5px;
-      top: 30%;
-      left: 90%;
-      animation-duration: 8s;
-    }
-
-    .star-5 {
-      width: 3.5px;
-      height: 3.5px;
-      top: 60%;
-      left: 10%;
-      animation-duration: 4s;
-    }
-
-    .nebula {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.2;
-      animation: float 20s ease-in-out infinite;
-    }
-
-    .nebula-1 {
-      width: 400px;
-      height: 400px;
-      background: var(--color-primary);
-      top: -150px;
-      left: -150px;
-      animation-duration: 20s;
-    }
-
-    .nebula-2 {
-      width: 500px;
-      height: 500px;
-      background: var(--color-accent);
-      bottom: -200px;
-      right: -150px;
-      animation-duration: 25s;
-      animation-delay: -5s;
-    }
-
-    .nebula-3 {
-      width: 350px;
-      height: 350px;
-      background: var(--color-secondary);
-      top: 40%;
-      left: 25%;
-      animation-duration: 18s;
-      animation-delay: -2s;
-    }
-
-    .header {
-      text-align: center;
-      margin-bottom: 60px;
-      animation: fadeIn 1s ease-in-out;
-      max-width: 800px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .header h1 {
-      font-size: 4.5rem;
-      background: linear-gradient(90deg, var(--color-primary), var(--color-secondary), var(--color-accent));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin-bottom: 20px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-shadow: 0 0 30px rgba(142, 68, 173, 0.5);
-      position: relative;
-      display: inline-block;
-    }
-
-    .header h1::after {
-      content: '';
-      position: absolute;
-      bottom: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 120px;
-      height: 5px;
-      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
-      border-radius: 3px;
-      box-shadow: 0 0 15px rgba(243, 156, 18, 0.7);
-    }
-
-    .header p {
-      font-size: 1.3rem;
-      color: rgba(236, 240, 241, 0.9);
-      line-height: 1.8;
-      font-weight: 300;
-      text-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
-    }
-
-    .team-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px;
-      max-width: 1400px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .team-member {
-      position: relative;
-      width: 240px;
-      height: 340px;
-      border-radius: 20px;
-      overflow: hidden; /* Quan trọng để ẩn phần tử ẩn ban đầu */
-      background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(52, 73, 94, 0.95)); /* Dark Blue-Grey Gradient */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 25px;
-      border: 2px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    }
-
-    .team-member:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.6);
-    }
-
-    .member-img-container {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin-bottom: 25px;
-      border: 6px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 0 40px rgba(142, 68, 173, 0.6);
-      transition: transform 0.4s ease-in-out;
-    }
-
-    .team-member:hover .member-img-container {
-      transform: scale(1.05);
-    }
-
-    .member-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .member-name {
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: var(--color-light);
-      text-align: center;
-      letter-spacing: 1px;
-      margin-bottom: 15px; /* Thêm khoảng cách cho nút CV */
-    }
-
-    .view-cv {
-      position: absolute; /* Quan trọng: định vị tuyệt đối */
-      bottom: -60px; /* Bắt đầu từ dưới card, ẩn đi */
-      left: 50%;
-      transform: translateX(-50%);
-      display: inline-block;
-      padding: 12px 30px;
-      background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); /* Sử dụng gradient */
-      color: var(--color-light); /* Đổi màu chữ cho phù hợp với nền gradient */
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-      transition: all 0.4s ease-out; /* Hiệu ứng mượt mà */
-      opacity: 0; /* Ẩn nút ban đầu */
-      white-space: nowrap; /* Ngăn không cho chữ bị xuống dòng */
-    }
-
-    .team-member:hover .view-cv {
-      bottom: 25px; /* Hiện lên khi hover */
-      opacity: 1; /* Hiện nút */
-    }
-
-    .view-cv:hover {
-      transform: translateX(-50%) scale(1.05); /* Hiệu ứng nhỏ khi hover vào nút */
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(50px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0); }
-      25% { transform: translate(20px, -20px); }
-      50% { transform: translate(-20px, 20px); }
-      75% { transform: translate(20px, 20px); }
-    }
-
-    @keyframes twinkle {
-        0%, 100% { opacity: 1; transform: scale(1); }
-        50% { opacity: 0.3; transform: scale(0.8); }
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .header h1 {
-        font-size: 3rem;
-      }
-      .header p {
-        font-size: 1rem;
-      }
-      .team-member {
-        width: 200px;
-        height: 300px;
-      }
-      .member-img-container {
-        width: 130px;
-        height: 130px;
-      }
-      .member-name {
-        font-size: 1.3rem;
-      }
-      .view-cv {
-        bottom: 20px; /* Điều chỉnh vị trí nút CV trên mobile nếu cần */
-        opacity: 1; /* Luôn hiển thị trên mobile nếu muốn */
-      }
-    }
-
-    @media (max-width: 480px) {
-      .header h1 {
-        font-size: 2.5rem;
-      }
-      .header p {
-        font-size: 0.9rem;
-      }
-      .team-container {
-        gap: 30px;
-      }
-      .team-member {
-        width: 180px;
-        height: 280px;
-      }
-      .member-img-container {
-        width: 110px;
-        height: 110px;
-      }
-      .member-name {
-        font-size: 1.1rem;
-      }
-      .view-cv {
-        padding: 10px 20px;
-        font-size: 0.9rem;
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Nynn's portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- 🔗 ICONS + JS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
 </head>
 <body>
-  <div class="bg-effect">
-    <div class="star star-1"></div>
-    <div class="star star-2"></div>
-    <div class="star star-3"></div>
-    <div class="star star-4"></div>
-    <div class="star star-5"></div>
-    <div class="nebula nebula-1"></div>
-    <div class="nebula nebula-2"></div>
-    <div class="nebula nebula-3"></div>
-  </div>
-
-  <div class="header">
-    <h1>NHÓM 2</h1>
-    <p>Chúng tôi là những nhà thám hiểm vũ trụ của tri thức, cùng nhau khám phá những vì sao của ý tưởng và định hình các thiên hà của giải pháp. Với tinh thần tiên phong và niềm đam mê không giới hạn, chúng tôi sẵn sàng vượt qua mọi giới hạn để mang đến những đột phá phi thường.</p>
-  </div>
-
-  <div class="team-container">
-    <div class="team-member">
-      <div class="member-img-container">
-        <img src="CV_Thinh/images/profile_Thinh.jpg" alt="TRẦN NGÔ PHÚC THỊNH" class="member-img">
-      </div>
-      <h3 class="member-name">TRẦN NGÔ PHÚC THỊNH</h3>
-      <a href="CV_Thinh/thinh.html" class="view-cv" target="_blank">XEM CV</a>
-    </div>
+  <!-- <button id="modeToggle">
+    <span class="sun-icon">☀️</span>
+    <span class="moon-icon">🌙</span>
+  </button> -->
+  <!-- ✨ INTRO – appears first -->
+  <section id="intro" class="fullscreen stars">
+    <h1 class="intro-title">
+        <span id="intro-typewriter"></span>
+    </h1>
+    <button id="exploreBtn" class="btn-explore">
+        <span class="label">EXPLORE</span>
+    </button>
     
-    <div class="team-member">
-      <div class="member-img-container">
-        <img src="CV_Y/images/avatar.jpg" alt="NGUYỄN NGỌC NHƯ Ý" class="member-img">
+    <div class="sparkles-container">
+        <div class="sparkle" style="left: 10%; animation-delay: 0.5s; animation-duration: 2.5s; width: 4px; height: 4px;"></div>
+        <div class="sparkle" style="left: 25%; animation-delay: 1.2s; animation-duration: 3.0s; width: 5px; height: 5px;"></div>
+        <div class="sparkle" style="left: 40%; animation-delay: 0.8s; animation-duration: 2.8s; width: 3px; height: 3px;"></div>
+        <div class="sparkle" style="left: 55%; animation-delay: 1.7s; animation-duration: 3.2s; width: 6px; height: 6px;"></div>
+        <div class="sparkle" style="left: 70%; animation-delay: 0.3s; animation-duration: 2.7s; width: 4.5px; height: 4.5px;"></div>
+        <div class="sparkle" style="left: 85%; animation-delay: 1.0s; animation-duration: 3.1s; width: 5.5px; height: 5.5px;"></div>
+        <div class="sparkle" style="left: 5%; animation-delay: 2.0s; animation-duration: 2.9s; width: 3.5px; height: 3.5px;"></div>
+        <div class="sparkle" style="left: 65%; animation-delay: 0.7s; animation-duration: 2.6s; width: 5px; height: 5px;"></div>
+    </div>
+  </section>
+
+
+
+  <!-- 🌌 EVERYTHING ELSE is wrapped inside #profile (hidden until Explore) -->
+  <main id="profile" class="hidden profile-vibe-banhbeo">
+
+    <!-- 🔮 BANNER -->
+    <header id="banner" class="gradient blur">
+      <h2 class="glow-text">
+        <span id="banner-typewriter"></span>
+      </h2>
+      <div class="butterflies">
+        <div class="butterfly" style="left: 10%; animation-delay: 0s;">🦋</div>
+        <div class="butterfly" style="left: 30%; animation-delay: 2s;">🦋</div>
+        <div class="butterfly" style="left: 50%; animation-delay: 4s;">🦋</div>
+        <div class="butterfly" style="left: 70%; animation-delay: 1s;">🦋</div>
+        <div class="butterfly" style="left: 90%; animation-delay: 3s;">🦋</div>
       </div>
-      <h3 class="member-name">NGUYỄN NGỌC NHƯ Ý</h3>
-      <a href="CV_Y/index.html" class="view-cv" target="_blank">XEM CV</a>
+
+    </header>
+
+    
+    <!-- 📝 PERSONAL INFO -->
+    <section id="about" class="section-glass">
+      <h2 class="section-title">INTRODUCE</h2>
+      <div class="introduce-timeline">
+        <div class="intro-bubble left">👋 Hi, I'm Nynn</div>
+        <div class="intro-bubble right">💖 A cute, beautiful & individualistic Gen Z girl</div>
+        <div class="intro-bubble left">🎨 I love creative, beautiful, and strange interfaces</div>
+        <div class="intro-bubble right">🌀 I don’t make boring websites — I make “webs with soul”</div>
+        <div class="intro-bubble left">✨ I blend language, tech & art into experiences</div>
+      </div>
+
+
+      <h2 class="section-title">ABOUT ME</h2>
+      <div class="about-me-grid"> <figure class="avatar">
+          <img src="images/avatar.jpg"  />
+        </figure>
+        <div class="info-card info-table">
+          <div class="row"><p><strong>Full name:</strong> Nguyen Ngoc Nhu Y</p><p><strong>Gender:</strong> Female</p></div>
+          <div class="row"><p><strong>Birth date:</strong> 15 July 2005</p><p><strong>Zodiac:</strong> Cancer</p></div>
+          <div class="row"><p><strong>Phone:</strong> 0941957308</p><p><strong>Status:</strong> Single</p></div>
+          <div class="row"><p><strong>Major:</strong> Information Technology</p><p><strong>University:</strong> Ho Chi Minh City University of Transport</p></div>
+          <div class="row"><p><strong>Address:</strong> 407/3 Nguyen Xi, Binh Thanh Dist, HCMC</p><p><strong>Email:</strong> <a href="mailto:nguyenngocnhuy15705@gmail.com">nguyenngocnhuy15705@gmail.com</a></p></div>
+        </div>
+      </div>
+    </section>
+   <!-- 🎯 GOALS -->
+    <section id="goals" class="section-gradient">
+      <h2 class="section-title">GOALS</h2>
+      <div class="goals-roadmap">
+        <div class="roadmap-step">
+          <div class="icon-wrapper">
+            <img src="images/UIUX.png" alt="UIUX">
+          </div>
+          <h3>UI/UX Design</h3>
+          <p>Master web-programming & UI/UX practices.</p>
+        </div>
+        <div class="roadmap-step">
+          <div class="icon-wrapper">
+            <img src="images/JS.jpg" alt="JavaScript">
+          </div>
+          <h3>JS & JQuery</h3>
+          <p>Dive into JS frameworks like React and JQuery.</p>
+        </div>
+        <div class="roadmap-step">
+          <div class="icon-wrapper">
+            <img src="images/languages.jpg" alt="Languages">
+          </div>
+          <h3>Language Skills</h3>
+          <p>Upgrade English, Chinese, and teamwork skills.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 💖 HOBBIES -->
+    <!-- <section id="hobbies" class="section-light">
+      <h2 class="section-title">HOBBIES</h2>
+
+      <div class="card-wrap">
+        <div class="flip-card" onclick="window.open('https://www.rophim.me/', '_blank')">
+          <div class="flip-inner">
+            <div class="flip-front">🎬 MOVIES</div>
+            <div class="flip-back movies">
+              <i class="fas fa-film fa-3x"></i>
+              <p>Explore the world of movies!</p>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card" onclick="window.open('https://truyenhdt.com/mobile/', '_blank')">
+          <div class="flip-inner">
+            <div class="flip-front">📚 NOVELS</div>
+            <div class="flip-back novels">
+              <i class="fas fa-book fa-3x"></i>
+              <p>Explore the world of fiction!</p>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card music" onclick="window.open('https://open.spotify.com/playlist/51dLoNriSZJPXaVJKtbNCs?si=7b5dbd7cb1674d58&pt=f0624899051502713ca46839e573a6a0', '_blank')">
+          <div class="flip-inner">
+            <div class="flip-front">🎵 MUSIC</div>
+            <div class="flip-back music">
+              <i class="fab fa-spotify fa-3x"></i>
+              <p>Click to listen!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card chess" onclick="window.open('https://www.chess.com/vi', '_blank')">
+          <div class="flip-inner">
+            <div class="flip-front">♟️ CHESS</div>
+            <div class="flip-back chess">
+              <p>Play with me!!!??? </p>
+              <i class="fas fa-chess fa-3x"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    -->
+    <h2 class="section-title">HOBBIES</h2>
+    <section id="galaxy-hobbies">
+      <div class="galaxy-container">
+        <div class="galaxy-core">
+          <img src="images/by1.jpg" alt="BY" />
+        </div>
+
+        <!-- PLANETS -->
+        <div class="galaxy-planet planet-teddy" 
+          data-gallery="images/teddy1.jpg,images/teddy2.jpg,images/teddy3.jpg" 
+          data-message="The knight who guards my dreams.">
+          <div class="planet-icon">🧸</div>
+          <div class="planet-label">Teddy</div>
+        </div>
+
+        <div class="galaxy-planet planet-dog" 
+          data-gallery="images/dog1.jpg,images/dog2.jpg,images/dog3.jpg"
+          data-message="A soul wrapped in fur and love.">
+          <div class="planet-icon">🐶</div>
+          <div class="planet-label">Dog</div>
+        </div>
+
+        <div class="galaxy-planet planet-movies" 
+          data-link="https://www.rophim.me/" title="click to the website I usually watch movies">
+          <div class="planet-icon">🎬</div>
+          <div class="planet-label">Movies</div>
+        </div>
+
+        <div class="galaxy-planet planet-novels" data-link="https://truyenhdt.com/mobile/" title="click to the website i usually read novels">
+          <div class="planet-icon">📚</div>
+          <div class="planet-label">Novels</div>
+        </div>
+
+        <div class="galaxy-planet planet-music" data-link="https://open.spotify.com/playlist/51dLoNriSZJPXaVJKtbNCs?si=7b5dbd7cb1674d58&pt=f0624899051502713ca46839e573a6a0" title="click to go to my favorite music album">
+          <div class="planet-icon">🎶</div>
+          <div class="planet-label">Music</div>
+        </div>
+
+        <div class="galaxy-planet planet-chess" data-link="https://www.chess.com/vi" title="click to play game with me">
+          <div class="planet-icon">♟️</div>
+          <div class="planet-label">Chess</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS & LANGUAGES -->
+    <section id="skills" class="section-glow">
+      <h2 class="section-title">SKILLS&nbsp;&amp;&nbsp;LANGUAGES</h2>
+      <div class="skill-grid">
+        <!-- Coding Skills -->
+        <div class="glass-box skill-card">
+          <h3>&lt;/&gt;&nbsp;Coding</h3>
+
+          <div class="skill-item">
+            <div class="skill-name">HTML/CSS:</div>
+            <div class="bar full">
+              <div class="segment basic">Basic</div>
+              <div class="segment medium">Medium</div>
+              <div class="segment advanced">Advanced</div>
+              <div class="level-fill" style="--level: 25%"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">JavaScript:</div>
+            <div class="bar full">
+              <div class="segment basic">Basic</div>
+              <div class="segment medium">Medium</div>
+              <div class="segment advanced">Advanced</div>
+              <div class="level-fill" style="--level: 20%"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">Python:</div>
+            <div class="bar full">
+              <div class="segment basic">Basic</div>
+              <div class="segment medium">Medium</div>
+              <div class="segment advanced">Advanced</div>
+              <div class="level-fill" style="--level: 20%"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">Java:</div>
+            <div class="bar full">
+              <div class="segment basic">Basic</div>
+              <div class="segment medium">Medium</div>
+              <div class="segment advanced">Advanced</div>
+              <div class="level-fill" style="--level: 20%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Language Skills -->
+        <div class="glass-box skill-card">
+          <h3>&#x1F4AC;&nbsp;Languages</h3>
+
+          <div class="skill-item">
+            <div class="skill-name">Vietnamese:</div>
+            <div class="bar full">
+              <div class="segment basic">Basic</div>
+              <div class="segment medium">Medium</div>
+              <div class="segment advanced">Advanced</div>
+              <div class="level-fill" style="--level: 98%"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">English:</div>
+            <div class="bar full">
+              <div class="segment basic">Basic</div>
+              <div class="segment medium">Medium</div>
+              <div class="segment advanced">Advanced</div>
+              <div class="level-fill" style="--level: 30%"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-name">Chinese:</div>
+            <div class="bar full">
+              <div class="segment basic">Basic</div>
+              <div class="segment medium">Medium</div>
+              <div class="segment advanced">Advanced</div>
+              <div class="level-fill" style="--level: 20%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!--  CERTIFICATES -->
+    <section id="certificate" class="section-glow">
+      <h2 class="section-title">CERTIFICATES & AWARDS</h2>
+      <div class="certificate-container">
+        <div class="main-certificate">
+          <img src="images/certificate.jpg" alt="Main Certificate">
+        </div>
+        <div class="awards-container"></div>
+      </div>
+    </section>
+  
+    <!-- 🚀 PROJECTS -->
+    <section id="projects" class="section-glow">
+      <h2 class="section-title"> 🚀 PROJECTS </h2>
+      <div class="project-wrap">
+        <article class="project-card">
+          <h3>Skincare Booking</h3>
+          <p>Skin care appointment booking web application, helps customers choose services and book appointments quickly, and supports store in managing appointments.</p>
+          <p><strong>Stack:</strong> Java / HTML, CSS, JS / Docker</p>
+          <p><strong>Contribution:</strong> Front-end, Back-end</p>
+          <a href="https://github.com/Justhathanh/Project_Java_SkinCareBooking" class="link-arrow">Details →</a>
+        </article>
+
+        <article class="project-card">
+          <h3>Web application for real estate rental and sale</h3>
+          <p>Rent &amp; real estate sale.</p>
+          <p><strong>Stack:</strong> HTML, CSS, JS</p>
+          <p><strong>Contribution:</strong> Front-end</p>
+          <a href="https://github.com/thinhtnp/Nhom2_Web" class="link-arrow">Details →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- 📞 CONTACT -->
+    <section id="contact" class="section-dark">
+      <h2 class="section-title">CONTACT</h2>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/Nynn.yi1507/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/nynn.yi/"     target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com/Nynn1507"            target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+      <p>Email: <a href="mailto:nguyenngocnhuy15705@gmail.com">nguyenngocnhuy15705@gmail.com</a></p>
+      <p>Phone: 0941957308</p>
+    </section>
+
+    <!-- ⬆️ BACK TO TOP -->
+    <button id="topBtn" title="Back to top">⬆</button>
+
+    <div class="bubbles">
+        <div class="bubble" style="left: 10%; width:8px; height:8px; animation-duration:7s;"></div>
+        <div class="bubble" style="left: 30%; width:12px; height:12px; animation-duration:9s;"></div>
+        <div class="bubble" style="left: 50%; width:10px; height:10px; animation-duration:8s;"></div>
+        <div class="bubble" style="left: 70%; width:14px; height:14px; animation-duration:10s;"></div>
+        <div class="bubble" style="left: 90%; width:6px; height:6px; animation-duration:6s;"></div>
     </div>
 
-      <div class="team-member">
-      <div class="member-img-container">
-        <img src="CV_Ti/pic.jpg" alt="LÂM VĂN TỊ" class="member-img">
-      </div>
-      <h3 class="member-name">LÂM VĂN TỊ</h3>
-      <a href="CV_Ti/LamVanTi.html" class="view-cv" target="_blank">XEM CV</a>
+    <div class="sparkles">
+        <div class="sparkle" style="left: 15%; animation-duration:5s;"></div>
+        <div class="sparkle" style="left: 35%; animation-duration:6s;"></div>
+        <div class="sparkle" style="left: 55%; animation-duration:4s;"></div>
+        <div class="sparkle" style="left: 75%; animation-duration:7s;"></div>
+        <div class="sparkle" style="left: 85%; animation-duration:5.5s;"></div>
     </div>
 
-      <div class="team-member">
-      <div class="member-img-container">
-        <img src="CV_Anh/nguyetanh.jpg" alt="TRẦN THỊ NGUYỆT ANH" class="member-img">
-      </div>
-      <h3 class="member-name">TRẦN THỊ NGUYỆT ANH</h3>
-      <a href="CV_Anh/Nguyetanh1.html" class="view-cv" target="_blank">XEM CV</a>
-    </div>
 
-      <div class="team-member">
-      <div class="member-img-container">
-        <img src="CV_Duy/avt.jpg" alt="PHẠM THÀNH DUY" class="member-img">
-      </div>
-      <h3 class="member-name">PHẠM THÀNH DUY</h3>
-      <a href="CV_Duy/phamthanhduy.html" class="view-cv" target="_blank">XEM CV</a>
-    </div>
-  </div>
+    <!-- 🪄 FOOTER -->
+    <footer class="footer">
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="#intro">Home</a></li>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#skills">Skills & Languages</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#hobbies">Hobbies</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <p>
+        ✨ Made with 💖 by Nynn ✨<br>
+        🪄 © 2025 Nguyen Ngoc Nhu Y. Thanks for visiting!
+      </p>
+    </footer>
+  </main>  
+  <script src="script.js"></script>
 </body>
 </html>
