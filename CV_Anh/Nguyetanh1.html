@@ -3,15 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>Nynn's portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- 🔗 ICONS + JS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
   
 </head>
 <body>
 
-  <!-- ✨ INTRO – appears first -->
   <section id="intro" class="fullscreen stars">
     <h1 class="intro-title">
         <span id="intro-typewriter"></span>
@@ -20,73 +17,48 @@
         <span class="label">EXPLORE</span>
     </button>
     
-    <div class="sparkles-container">
-        <div class="sparkle" style="left: 10%; animation-delay: 0.5s; animation-duration: 2.5s; width: 4px; height: 4px;"></div>
-        <div class="sparkle" style="left: 25%; animation-delay: 1.2s; animation-duration: 3.0s; width: 5px; height: 5px;"></div>
-        <div class="sparkle" style="left: 40%; animation-delay: 0.8s; animation-duration: 2.8s; width: 3px; height: 3px;"></div>
-        <div class="sparkle" style="left: 55%; animation-delay: 1.7s; animation-duration: 3.2s; width: 6px; height: 6px;"></div>
-        <div class="sparkle" style="left: 70%; animation-delay: 0.3s; animation-duration: 2.7s; width: 4.5px; height: 4.5px;"></div>
-        <div class="sparkle" style="left: 85%; animation-delay: 1.0s; animation-duration: 3.1s; width: 5.5px; height: 5.5px;"></div>
-        <div class="sparkle" style="left: 5%; animation-delay: 2.0s; animation-duration: 2.9s; width: 3.5px; height: 3.5px;"></div>
-        <div class="sparkle" style="left: 65%; animation-delay: 0.7s; animation-duration: 2.6s; width: 5px; height: 5px;"></div>
-    </div>
   </section>
-
-
-
-  <!-- 🌌 EVERYTHING ELSE is wrapped inside #profile (hidden until Explore) -->
-  <main id="profile" class="hidden profile-vibe-banhbeo">
-
-    <!-- 🔮 BANNER -->
-    <header id="banner" class="gradient blur">
-      <h2 class="glow-text">
-        <span id="banner-typewriter"></span>
-      </h2>
-      <div class="butterflies">
-        <div class="butterfly" style="left: 10%; animation-delay: 0s;">🦋</div>
-        <div class="butterfly" style="left: 30%; animation-delay: 2s;">🦋</div>
-        <div class="butterfly" style="left: 50%; animation-delay: 4s;">🦋</div>
-        <div class="butterfly" style="left: 70%; animation-delay: 1s;">🦋</div>
-        <div class="butterfly" style="left: 90%; animation-delay: 3s;">🦋</div>
-      </div>
-
-    </header>
-
     
-    <!-- 📝 PERSONAL INFO -->
-    <section id="about" class="section-glass">
-      <h2 class="section-title">INTRODUCE</h2>
-      <div class="intro-content">
-        <div class="info-card">
-          <p>Hi,I'm Nguyet Anh 👋</p>
-          <p>I'm an IT student at UTH with a strong foundation in programming, fluent in English, and skilled in leadership and creativity. I’m eager to solve real-world problems and thrive in dynamic environments. ✨</p>
+   <div class="content">
+        <h2 class="section-title">Profile</h2>
+        <div class="card section fade-in" id="profile">
+            <p class="profile-content">I'm an IT student at UTH with a strong foundation in programming, fluent in English, and skilled in leadership and creativity. I’m eager to solve real-world problems and thrive in dynamic environments.</p>
         </div>
-      </div>
 
-      <h2 class="section-title">ABOUT ME</h2>
-      <div class="about-me-grid"> <figure class="avatar">
-          <img src="image/nguyetanh.jpg"  />
-        </figure>
-        <div class="info-card info-table">
-          <div class="row"><p><strong>Full name:</strong> Tran Thi Nguyet Anh</p><p><strong>Gender:</strong> Female</p></div>
-          <div class="row"><p><strong>Birth date:</strong> 31 oct 2005</p><p><strong>Zodiac:</strong> Cancer</p></div>
-          <div class="row"><p><strong>Phone:</strong> 0356649437</p><p><strong>Status:</strong> Single</p></div>
-          <div class="row"><p><strong>Major:</strong> Information Technology</p><p><strong>University:</strong> Ho Chi Minh City University of Transport</p></div>
-          <div class="row"><p><strong>Address:</strong> Xo Viet Nghe Tinh, Binh Thanh Dist, HCMC</p><p><strong>Email:</strong> <a href="mailto:ttnguyetanh05@gmail.com">ttnguyetanh05@gmail.com</a></p></div>
+      <h2 class="section-title">Information</h2>
+      <div class="card about-me-grid">
+        <div class="information-container">
+          <div class="profile-picture-container">
+              <img src="image/nguyetanh.jpg" alt="Profile Picture" class="profile-picture" />
+          </div>
+          <div class="information-details">
+              <ul class="info-list">
+                  <li><strong>Date Of Birth:</strong> 31/10/2005</li>
+                  <li><strong>Sexology:</strong> Nữ</li>
+                  <li><strong>SĐT:</strong> 0356649437</li>
+                  <li><strong>Email:</strong> ttnguyetanh05@gmail.com</li>
+                  <li><strong>Direction:</strong> TP.Hồ Chí Minh, Việt Nam</li>
+                  <li><strong>Education:</strong> Ho Chi Minh City University of Transport</li>
+                  <li><strong>GPA:</strong> 3.66/4.0</li>
+              </ul>
+          </div>
         </div>
       </div>
     </section>
-    <!-- 🎯 Career Goals -->
-    <section id="goals" class="section-gradient">
-      <h2 class="section-title">GOALS</h2>
-      <ul class="pill-list">
-        <li>To apply my programming knowledge and soft skills in real-world projects or internships, gain hands-on experience, and adapt to a professional IT working environment. &amp; UI/UX design</li>
-        <li>To become a skilled software developer or IT specialist who can design and build modern technology solutions, contributing to innovative and impactful projects in the tech industry.</li>
-        <li>Learn a third language</li>
-      </ul>
+<div class="section fade-in" id="career">
+    <div class="glass-box">
+    <h2 class="section-title">Career Goals</h2>
+        <ul class="checkbox-list">
+            <li>To apply my programming knowledge and soft skills in real-world projects or internships, gain hands-on experience, and adapt to a professional IT working environment.</li>
+            <li>To become a skilled software developer or IT specialist who can design and build modern technology solutions, contributing to innovative and impactful projects in the tech industry.</li>
+            <li>Build several complete personal projects (such as websites, apps, or small systems) to demonstrate technical skills and creativity.</li>
+            <li>Obtain professional certifications such as Google IT, AWS, Microsoft Azure, or programming certificates (e.g., Python, Java, Web development).</Li>
+            <li>Pursue graduate studies (if inclined toward research) or deepen expertise in a specialized area of interest within Information Technology.</li>
+        </ul>
+    </div>
+</div>
     </section>
 
-    <!-- 💖 HOBBIES -->
     <section id="hobbies" class="section-light">
       <h2 class="section-title">HOBBIES</h2>
 
@@ -131,30 +103,25 @@
       </div>
     </section>
 
-    <!-- 🛠️ SKILLS & LANGUAGES -->
     <section id="skills" class="section-glow">
-      <h2 class="section-title">SKILLS&nbsp;&amp;&nbsp;LANGUAGES</h2>
+      <h2 class="section-title">SKILLS & LANGUAGES</h2>
       <div class="skill-grid">
-        <!-- Coding skills -->
         <div class="glass-box">
-          <h3>&lt;/&gt;&nbsp;Coding</h3>
+          <h3></> Coding</h3>
           <div class="bar"><span style="--w:60%">HTML/CSS</span></div>
           <div class="bar"><span style="--w:50%">JavaScript</span></div>
           <div class="bar"><span style="--w:40%">Python</span></div>
           <div class="bar"><span style="--w:40%">Java</span></div>
         </div>
-        <!-- Languages -->
         <div class="glass-box">
-          <h3>&#x1F4AC;&nbsp;Languages</h3>
+          <h3>💬 Languages</h3>
           <div class="bar"><span style="--w:100%">Vietnamese </span></div>
           <div class="bar"><span style="--w:60%">English </span></div>
-          <div class="bar"><span style="--w:10%">Chinese </span></div>
         </div>
       </div>
     </section>
 
-        <!-- CERTIFICATES -->
-<section id="certificate" class="section-glow">
+        <section id="certificate" class="section-glow">
   <h2 class="section-title">CERTIFICATES & AWARDS</h2>
 
   <div class="certificates-cards-wrapper">
@@ -172,7 +139,6 @@
 
 
 
-    <!-- 🚀 PROJECTS -->
     <section id="projects" class="section-glow">
       <h2 class="section-title"> 🚀 PROJECTS </h2>
       <div class="project-wrap">
@@ -180,20 +146,19 @@
           <h3>Skincare Booking</h3>
           <p>Ứng dụng web đặt lịch chăm sóc da, giúp khách hàng chọn dịch vụ và đặt lịch nhanh chóng, đồng thời hỗ trợ spa quản lý lịch hẹn.</p>
           <p><strong>Contribute:</strong>Fondend, Login, cart, checkout…</p>
-          <p><strong>Stack:</strong> Java&nbsp;/ HTML&nbsp;CSS&nbsp;JS</p>
+          <p><strong>Stack:</strong> Java / HTML CSS JS</p>
           <a href="https://github.com/Justhathanh/Project_Java_SkinCareBooking" class="link-arrow">Details →</a>
         </article>
 
         <article class="project-card">
           <h3>Web introduce myself</h3>
           <p>Ứng dụng giới thiệu về bản thân </p>
-          <p><strong>Stack:</strong> HTML&nbsp;CSS&nbsp;JS</p>
+          <p><strong>Stack:</strong> HTML CSS JS</p>
           <a href="https://github.com/Nynn1507/group2_Portfolio.github.io.git" class="link-arrow">Details →</a>
         </article>
       </div>
     </section>
 
-    <!-- 📞 CONTACT -->
     <section id="contact" class="section-dark">
       <h2 class="section-title">CONTACT</h2>
       <div class="social-icons">
@@ -205,7 +170,6 @@
       <p>Phone: 0356649437</p>
     </section>
 
-    <!-- ⬆️ BACK TO TOP -->
     <button id="topBtn" title="Back to top">⬆</button>
 
     <div class="bubbles">
@@ -225,7 +189,6 @@
     </div>
 
 
-    <!-- 🪄 FOOTER -->
     <footer class="footer">
       <nav class="footer-nav">
         <ul>
@@ -237,13 +200,7 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <p>
-        ✨ Made with 💖 by Nguyet Anh ✨<br>
-        🪄 © 2025 Tran Thi Nguyet Anh. Thanks for visiting!
-      </p>
-    </footer>
 
 <script src="script.js"></script>
 </body>
 </html>
-
